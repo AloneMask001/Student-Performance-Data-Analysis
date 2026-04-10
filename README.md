@@ -1,25 +1,36 @@
+# 📊 Student Performance Data Analysis
+
+A comprehensive data science project analyzing student academic performance using **NumPy**, **Pandas**, **Seaborn**, and **Matplotlib**.
+
+---
+
+## 📁 Project Structure
+
+    student-performance-analysis/
+    ├── Data_Science_Project_on_Student_Data.ipynb
+    ├── student_performance.csv
+    └── README.md
+
 ---
 
 ## 📌 Dataset
-
-The dataset `student_performance.csv` contains academic and demographic information for students. Key columns include:
 
 | Column | Description |
 |---|---|
 | `StudentID` | Unique student identifier |
 | `Gender` | Student gender |
 | `Age` | Student age |
-| `School` | School attended (e.g., School_A) |
+| `School` | School attended |
 | `MathScore` | Math exam score |
 | `ReadingScore` | Reading exam score |
 | `WritingScore` | Writing exam score |
 | `StudyTime` | Weekly study time |
 | `Absences` | Number of absences |
 | `Failures` | Number of past failures |
-| `TestPreparation` | Test prep course completion status |
+| `TestPreparation` | Test prep course status |
 | `ParentEducation` | Parent's education level |
 | `FamilySupport` | Family academic support |
-| `ExtraCurricular` | Extracurricular activity participation |
+| `ExtraCurricular` | Extracurricular participation |
 | `Internet` | Internet access at home |
 | `Health` | Health status (scale 1–5) |
 | `FinalGrade` | Computed final grade |
@@ -29,28 +40,25 @@ The dataset `student_performance.csv` contains academic and demographic informat
 ## 🔬 Project Tasks & Analysis
 
 ### Part 1 — NumPy Operations
-- Loaded `MathScore`, `ReadingScore`, `WritingScore`, and `Age` as NumPy arrays
-- Inspected shapes and dtypes
-- Computed NaN counts and descriptive statistics (mean, median, std, min, max)
-- Created a **weighted composite score**: `0.4 * Math + 0.3 * Reading + 0.3 * Writing`
-- Categorized students into: **Fail / Pass / Merit / Distinction**
-- Calculated **Z-scores** for Math
-- Applied **square root transformation** to reduce variance
-- Stacked arrays into a 2D matrix; computed row-wise and column-wise stats
+- Loaded scores and age as NumPy arrays
+- Computed descriptive statistics (mean, median, std, min, max)
+- Created weighted composite score: `0.4 * Math + 0.3 * Reading + 0.3 * Writing`
+- Categorized students: **Fail / Pass / Merit / Distinction**
+- Calculated Z-scores and applied square root transformation
+- Stacked arrays into 2D matrix for row/column-wise stats
 
 ### Part 2 — Pandas EDA (Tasks 2.5 – 2.9)
-- Loaded data into a DataFrame; inspected with `.head()`, `.info()`, `.describe()`
-- Analyzed missing value counts and percentages
-- **Filtering & Slicing** (Task 2.6): School A / StudyTime / TestPreparation / ParentEducation filters; assigned `NaN` to MathScore where Absences > 15
-- **Missing Value Imputation** (Task 2.7): Scores → school-wise mean; Absences → median; Health → mode; FinalGrade → recalculated
-- **Feature Engineering** (Task 2.8): Dropped `StudentID`; created `GradeCategory` and `HighAttendance` flag
-- **Statistical Analysis** (Task 2.9): Skewness & kurtosis; group-by analysis; full correlation matrix
+- Inspected data with `.head()`, `.info()`, `.describe()`
+- Filtering & Slicing: school, study time, test prep, parent education filters
+- Missing Value Imputation: scores → school-wise mean; absences → median; health → mode
+- Feature Engineering: `GradeCategory` and `HighAttendance` columns
+- Statistical Analysis: skewness, kurtosis, group-by, correlation matrix
 
 ### Part 3 — Summary Report (Task 10)
-- **Score Distribution**: all distributions are approximately symmetric
-- **Test Preparation Effect**: Math +4.4% | Reading +15.4% | Writing +11.3%
-- **Study Time & Performance**: monotonic positive relationship confirmed
-- **Correlation Insights**: ReadingScore (0.85) and WritingScore (0.84) are the strongest FinalGrade predictors
+- Score distributions are approximately symmetric
+- Test Preparation Effect: Math +4.4% | Reading +15.4% | Writing +11.3%
+- Study time has a monotonic positive relationship with final grade
+- ReadingScore (0.85) and WritingScore (0.84) are strongest FinalGrade predictors
 
 ---
 
@@ -69,39 +77,34 @@ The dataset `student_performance.csv` contains academic and demographic informat
 
 ## 🚀 Getting Started
 
-### 1. Clone the Repository
-```bash
-git clone https://github.com/your-username/student-performance-analysis.git
-cd student-performance-analysis
-```
+**1. Clone the repository**
 
-### 2. Install Dependencies
-```bash
-pip install numpy pandas matplotlib seaborn jupyter
-```
+    git clone https://github.com/AloneMask001/Student-Performance-Data-Analysis.git
+    cd Student-Performance-Data-Analysis
 
-### 3. Launch Jupyter Notebook
-```bash
-jupyter notebook Data_Science_Project_on_Student_Data.ipynb
-```
+**2. Install dependencies**
 
-> ⚠️ Make sure `student_performance.csv` is in the **same directory** as the notebook before running.
+    pip install numpy pandas matplotlib seaborn jupyter
+
+**3. Launch Jupyter Notebook**
+
+    jupyter notebook Data_Science_Project_on_Student_Data.ipynb
 
 ---
 
 ## 📈 Key Findings
 
-- 📚 **Test preparation** significantly boosts scores — especially Reading (+15.4%) and Writing (+11.3%)
-- ⏱️ **More study time** correlates with higher final grades (monotonic relationship)
-- 🏫 **School-wise imputation** preserves group-level accuracy for missing scores
-- 📉 **High absences** (>15) negatively impact MathScore
-- 🔗 **ReadingScore** has the highest correlation with FinalGrade (r = 0.85)
+- 📚 Test preparation boosts scores — Reading (+15.4%) and Writing (+11.3%) most
+- ⏱️ More study time correlates with higher final grades
+- 🏫 School-wise imputation preserves group-level accuracy
+- 📉 High absences (>15) negatively impact MathScore
+- 🔗 ReadingScore has the highest correlation with FinalGrade (r = 0.85)
 
 ---
 
 ## 🙏 Acknowledgements
 
-- Some visualizations and correlation logic were developed with assistance from **Claude AI** and **Google Gemini**
+- Some visualizations developed with assistance from **Claude AI** and **Google Gemini**
 - Dataset used for educational purposes
 
 ---
